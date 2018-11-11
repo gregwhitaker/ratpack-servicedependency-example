@@ -24,9 +24,6 @@ public class Main {
                 .registry(Guice.registry(b -> b
                         .module(ServiceModule.class))
                 )
-//                .handlers(chain -> chain
-//                        .insert(UploadHandlers.class)
-//                )
         );
     }
 }
