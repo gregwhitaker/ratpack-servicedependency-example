@@ -1,7 +1,7 @@
 # ratpack-servicedependency-example
 [![Build Status](https://travis-ci.org/gregwhitaker/ratpack-servicedependency-example.svg?branch=master)](https://travis-ci.org/gregwhitaker/ratpack-servicedependency-example)
 
-An example of how to control the ordering of service startup and shutdown in [Ratpack](https://ratpack/io).
+An example of how to control the ordering of service startup and shutdown in [Ratpack](https://ratpack.io).
 
 ## Running the Example
 Follow the steps below to run the example:
