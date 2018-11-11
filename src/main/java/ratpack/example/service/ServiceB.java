@@ -7,7 +7,7 @@ import ratpack.service.StartEvent;
 import ratpack.service.StopEvent;
 
 /**
- * Service that depends on ServiceA.
+ * Service that depends on ServiceA using the {@link DependsOn} annotation.
  */
 @Singleton
 @DependsOn(ServiceA.class)
