@@ -1,0 +1,5 @@
+# Configuration
+
+serviceDependencies:
+  serviceC: ServiceB  #If "ServiceB" then A -> B -> C -> D; If "ServiceD" then A -> B -> D -> C
+  #serviceC: ServiceD  #If "ServiceB" then A -> B -> C -> D; If "ServiceD" then A -> B -> D -> C
