@@ -10,7 +10,7 @@ Follow the steps below to run the example:
 
         ./gradlew run
         
-2. In the terminal you will notice that the service started in the order `A -> B -> C -> D`:
+    In the terminal you will notice that the service started in the order `A -> B -> C -> D`:
 
         09:46:08.594 [main] INFO  ratpack.server.RatpackServer - Starting server...
         09:46:08.642 [main] INFO  ratpack.server.RatpackServer - Building registry...
@@ -21,13 +21,28 @@ Follow the steps below to run the example:
         Starting ServiceD
         09:46:09.131 [main] INFO  ratpack.server.RatpackServer - Ratpack started for http://localhost:5050
         
-3. Now stop the application and notice that the services stopping in the order `D -> C -> B -> A`:
+3. Stop the application and modify the `config.yml` file as follows:
 
-        09:46:11.185 [ratpack-shutdown-thread] INFO  ratpack.server.RatpackServer - Stopping server...
-        Stopping ServiceD
-        Stopping ServiceC
-        Stopping ServiceB
-        Stopping ServiceA
+        serviceDependencies:
+          #serviceC: ServiceB   # A -> B -> C -> D
+          serviceC: ServiceD    # A -> B -> D -> C
+          
+4. Run the following command to start the application again:
+
+        ./gradlew run
+        
+    In the terminal you will notice that the service started in the order `A -> B -> D -> C`:
+        
+        09:58:32.745 [main] INFO  ratpack.server.RatpackServer - Starting server...
+        09:58:32.789 [main] INFO  ratpack.server.RatpackServer - Building registry...
+        09:58:33.186 [main] INFO  ratpack.server.RatpackServer - Initializing 4 services...
+        Starting ServiceA
+        Starting ServiceB
+        Starting ServiceD
+        Starting ServiceC
+        09:58:33.258 [main] INFO  ratpack.server.RatpackServer - Ratpack started (development) for http://localhost:5050
+        
+On application shutdown the services will terminate in the opposite order that they started.
 
 ## Bugs and Feedback
 For bugs, questions, and discussions please use the [Github Issues](https://github.com/gregwhitaker/ratpack-servicedependency-example/issues).
