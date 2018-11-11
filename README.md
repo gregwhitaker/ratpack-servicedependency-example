@@ -1,6 +1,33 @@
 # ratpack-servicedependency-example
+[![Build Status](https://travis-ci.org/gregwhitaker/ratpack-servicedependency-example.svg?branch=master)](https://travis-ci.org/gregwhitaker/ratpack-servicedependency-example)
 
 An example of how to control the ordering of service startup and shutdown in [Ratpack](https://ratpack/io).
+
+## Running the Example
+Follow the steps below to run the example:
+
+1. Run the following command to start the application:
+
+        ./gradlew run
+        
+2. In the terminal you will notice that the service started in the order `A -> B -> C -> D`:
+
+        09:46:08.594 [main] INFO  ratpack.server.RatpackServer - Starting server...
+        09:46:08.642 [main] INFO  ratpack.server.RatpackServer - Building registry...
+        09:46:09.058 [main] INFO  ratpack.server.RatpackServer - Initializing 4 services...
+        Starting ServiceA
+        Starting ServiceB
+        Starting ServiceC
+        Starting ServiceD
+        09:46:09.131 [main] INFO  ratpack.server.RatpackServer - Ratpack started for http://localhost:5050
+        
+3. Now stop the application and notice that the services stopping in the order `D -> C -> B -> A`:
+
+        09:46:11.185 [ratpack-shutdown-thread] INFO  ratpack.server.RatpackServer - Stopping server...
+        Stopping ServiceD
+        Stopping ServiceC
+        Stopping ServiceB
+        Stopping ServiceA
 
 ## Bugs and Feedback
 For bugs, questions, and discussions please use the [Github Issues](https://github.com/gregwhitaker/ratpack-servicedependency-example/issues).
