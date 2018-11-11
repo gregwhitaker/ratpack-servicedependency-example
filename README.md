@@ -1,6 +1,9 @@
 # ratpack-servicedependency-example
 
-An example of how to control the ordering of service startup in [Ratpack](https://ratpack/io).
+An example of how to control the ordering of service startup and shutdown in [Ratpack](https://ratpack/io).
+
+## Bugs and Feedback
+For bugs, questions, and discussions please use the [Github Issues](https://github.com/gregwhitaker/ratpack-servicedependency-example/issues).
 
 ## License
 MIT License
